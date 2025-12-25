@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Chat Navigator</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="popup">
+      <header class="header">
+        <div>
+          <h1 data-i18n="popupTitle">AI Chat Navigator</h1>
+          <p class="subtitle" data-i18n="popupSubtitle">
+            Sidebar navigation for long AI chat threads.
+          </p>
+        </div>
+      </header>
+
+      <section class="section">
+        <label class="label" for="languageSelect" data-i18n="languageLabel">Language</label>
+        <select id="languageSelect" class="select">
+          <option value="auto" data-i18n="languageAuto">Auto</option>
+          <option value="en" data-i18n="languageEnglish">English</option>
+          <option value="zh" data-i18n="languageChinese">Chinese</option>
+        </select>
+      </section>
+
+      <section class="section">
+        <label class="label" for="sidebarPosition" data-i18n="sidebarPositionLabel">
+          Sidebar position
+        </label>
+        <select id="sidebarPosition" class="select">
+          <option value="right" data-i18n="sidebarPositionRight">Right</option>
+          <option value="left" data-i18n="sidebarPositionLeft">Left</option>
+        </select>
+      </section>
+
+      <section class="section">
+        <label class="toggle">
+          <input id="showTimestamp" type="checkbox" />
+          <span data-i18n="showTimestamp">Show timestamps in the list</span>
+        </label>
+      </section>
+
+      <section class="section">
+        <h2 data-i18n="actionsTitle">Actions</h2>
+        <button id="toggleSidebar" class="action-btn" type="button" data-i18n="toggleSidebar">
+          Show/Hide sidebar
+        </button>
+      </section>
+
+      <section class="section">
+        <h2 data-i18n="shortcutsTitle">Shortcuts</h2>
+        <div class="shortcut">
+          <span class="key">Alt + N</span>
+          <span data-i18n="shortcutToggle">Toggle sidebar</span>
+        </div>
+      </section>
+
+      <div id="status" class="status" aria-live="polite"></div>
+    </div>
+
+    <script src="../utils/i18n.js"></script>
+    <script src="../utils/storage.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
