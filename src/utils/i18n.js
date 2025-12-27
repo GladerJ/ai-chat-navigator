@@ -66,10 +66,15 @@
   }
 
   function detectLocale() {
+    const webLocale = root.navigator?.languages?.[0] || root.navigator?.language;
+
+    if (webLocale) {
+      return webLocale;
+    }
     if (root.chrome && chrome.i18n && typeof chrome.i18n.getUILanguage === "function") {
       return chrome.i18n.getUILanguage();
     }
-    return root.navigator?.language || "en";
+    return "en";
   }
 
   function resolveLocale(locale) {
@@ -90,9 +95,7 @@
   }
 
   function t(key, fallback) {
-    const value =
-      (MESSAGES[currentLocale] && MESSAGES[currentLocale][key]) ||
-      (MESSAGES.en && MESSAGES.en[key]);
+    const value = (MESSAGES[currentLocale] && MESSAGES[currentLocale][key]) || (MESSAGES.en && MESSAGES.en[key]);
     if (value) {
       return value;
     }
